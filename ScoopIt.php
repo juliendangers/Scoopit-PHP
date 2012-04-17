@@ -351,10 +351,11 @@ class ScoopIt {
 	}
 	
 	public function compilation($sort="rss", $since=0, $count=30) {
-		if($this->isLoggedIn()))
+		if($this->isLoggedIn()) {
 			return $this->get($this->scitServer."api/1/compilation?&sort=".$sort."&since=".$since."&count=".$count)->posts;
-		else
+		} else {
 			throw new Exception("You need to be connected to get your compilation of followed topics");
+		}
 	}
 	
 	public function rescoop($post_id, $topic_id) {
@@ -368,10 +369,11 @@ class ScoopIt {
 	}
 	
 	public function notifications($since) {
-		if($this->isLoggedIn()))
+		if($this->isLoggedIn()){
 			return $this->get($this->scitServer."api/1/notifications?since=".$since)->notifications;
-		else
+		} else {
 			throw new Exception("You have to be connected to get your notifications");
+		}
 	}
 }
 
